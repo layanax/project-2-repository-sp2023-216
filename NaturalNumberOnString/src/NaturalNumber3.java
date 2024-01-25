@@ -33,7 +33,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      */
     private void createNewRep() {
 
-        // TODO - fill in body
+        // TODO - fill in body (LAYAN)
 
     }
 
@@ -46,7 +46,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      */
     public NaturalNumber3() {
 
-        // TODO - fill in body
+        // TODO - fill in body (LAYAN)
 
     }
 
@@ -59,7 +59,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(int i) {
         assert i >= 0 : "Violation of: i >= 0";
 
-        // TODO - fill in body
+        // TODO - fill in body (LAYAN)
 
     }
 
@@ -74,7 +74,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
-        // TODO - fill in body
+        // TODO - fill in body (OAK)
 
     }
 
@@ -87,7 +87,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(NaturalNumber n) {
         assert n != null : "Violation of: n is not null";
 
-        // TODO - fill in body
+        // TODO - fill in body (OAK)
 
     }
 
@@ -134,14 +134,14 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
 
-        // TODO - fill in body
+        // TODO - fill in body (LAYAN)
 
     }
 
     @Override
     public final int divideBy10() {
 
-        // TODO - fill in body
+        // TODO - fill in body (OAK)
 
         // This line added just to make the component compilable.
         return 0;
@@ -150,7 +150,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     @Override
     public final boolean isZero() {
 
-        // TODO - fill in body
+        // TODO - fill in body (OAK)
 
         // This line added just to make the component compilable.
         return false;
