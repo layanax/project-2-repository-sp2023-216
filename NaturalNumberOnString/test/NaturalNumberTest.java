@@ -99,4 +99,7 @@ public abstract class NaturalNumberTest {
 
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
+    public static void constructorFromStringTest1() {
+
+    }
 }

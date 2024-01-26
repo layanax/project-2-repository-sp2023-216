@@ -74,7 +74,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
-        // TODO - fill in body (OAK)
+        this.rep = s;
 
     }
 
@@ -86,8 +86,14 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      */
     public NaturalNumber3(NaturalNumber n) {
         assert n != null : "Violation of: n is not null";
-
-        // TODO - fill in body (OAK)
+        //checking for case of 0 since a 0 is represented by an empty string
+        if (n.isZero()) {
+            //set the representative string to ""
+            this.rep = "";
+        } else {
+            //set the representative string to the string value of n
+            this.rep = n.toString();
+        }
 
     }
 
@@ -141,20 +147,29 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
     @Override
     public final int divideBy10() {
+        // the int to be returned
+        int digit;
+        //an empty string should return a 0
+        if (this.rep.equals("")) {
+            digit = 0;
+        } else {
+            //seperate the last digit of the string
+            String digitString = this.rep.substring(this.rep.length() - 2,
+                    this.rep.length() - 1);
+            //remove the last digit of the string from the string
+            this.rep = this.rep.substring(0, this.rep.length() - 2);
+            //turn digitString into an int
+            digit = Integer.parseInt(digitString);
+        }
 
-        // TODO - fill in body (OAK)
-
-        // This line added just to make the component compilable.
-        return 0;
+        // return the digit
+        return digit;
     }
 
     @Override
     public final boolean isZero() {
 
-        // TODO - fill in body (OAK)
-
-        // This line added just to make the component compilable.
-        return false;
+        return this.rep.isEmpty();
     }
 
 }
