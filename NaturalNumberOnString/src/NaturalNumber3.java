@@ -59,10 +59,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(int i) {
         assert i >= 0 : "Violation of: i >= 0";
 
+        //checks if input is 0 and returns an empty string
         if (i == 0) {
             this.rep = "";
         } else {
-            this.rep = Integer.toString(i);
+            this.rep = Integer.toString(i); //converts integer to string rep
         }
     }
 
@@ -77,10 +78,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
+        //checks if input is 0 and returns an empty string
         if (s.equals("0")) {
             this.rep = "";
         } else {
-            this.rep = s;
+            this.rep = s; //sets rep to input string
         }
     }
 
@@ -145,7 +147,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
 
-        //multiplies by 10 raised to the power of k
+        //multiplies by 10 raised to power of k by appending k zeros to rep
         this.rep += "0".repeat(k);
 
     }
@@ -155,7 +157,9 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         int digit = 0;
         if (!this.rep.isEmpty()) {
             char lastChar = this.rep.charAt(this.rep.length() - 1);
+            //extracts last digit
             digit = Character.getNumericValue(lastChar);
+            //remove last digit from rep
             this.rep = this.rep.substring(0, this.rep.length() - 1);
         }
         return digit;

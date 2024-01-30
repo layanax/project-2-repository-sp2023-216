@@ -103,12 +103,19 @@ public abstract class NaturalNumberTest {
      */
     protected abstract NaturalNumber constructorRef(NaturalNumber n);
 
+    /**
+     * Test for default constructor with a string rep of "0".
+     */
     @Test
     public void constructorTestDefault() {
         NaturalNumber n = this.constructorTest();
         assertEquals("0", n.toString());
     }
 
+    /**
+     * Test for int constructor with a specific string rep value equal to an int
+     * value.
+     */
     @Test
     public void constructorTestInt() {
         int value = 123;
@@ -116,6 +123,10 @@ public abstract class NaturalNumberTest {
         assertEquals(String.valueOf(value), n.toString());
     }
 
+    /**
+     * Test for string constructor with a specific string rep value equal to an
+     * input string value.
+     */
     @Test
     public void constructorTestString() {
         String value = "123";
@@ -123,6 +134,10 @@ public abstract class NaturalNumberTest {
         assertEquals(value, n.toString());
     }
 
+    /**
+     * Test for natural number constructor that checks if the natural number
+     * object has an equal string rep value.
+     */
     @Test
     public void constructorTestNaturalNumber() {
         NaturalNumber value = new NaturalNumber3(123);
@@ -130,6 +145,10 @@ public abstract class NaturalNumberTest {
         assertEquals("123", n.toString());
     }
 
+    /**
+     * Test for multiplyBy10 that checks if the natural number object has an
+     * equal string rep value.
+     */
     @Test
     public void multiplyBy10Test() {
         NaturalNumber n = this.constructorTest(123);
@@ -138,7 +157,7 @@ public abstract class NaturalNumberTest {
     }
 
     /**
-     * Simple divideBy10 for multi-digit numbers.
+     * Test for divideBy10 using simple multi-digit numbers.
      */
     @Test
     public void divideBy10Test() {
@@ -147,32 +166,47 @@ public abstract class NaturalNumberTest {
         assertEquals("12", n.toString());
     }
 
+    /**
+     * Test for isZero with an empty rep.
+     */
     @Test
-    public void testIsZeroWithEmptyRepresentation() {
+    public void testIsZeroWithEmptyRep() {
         NaturalNumber n = new NaturalNumber3();
         assertTrue(n.isZero());
     }
 
+    /**
+     * Test for isZero with a string parameter set to a value of "0".
+     */
     @Test
-    public void testIsZeroWithZeroRepresentation() {
+    public void testIsZeroWithZeroRep() {
         NaturalNumber n = new NaturalNumber3("0");
         assertTrue(n.isZero());
     }
 
+    /**
+     * Test for isZero with a string parameter set to a nonzero value.
+     */
     @Test
-    public void testIsZeroWithNonZeroRepresentation() {
+    public void testIsZeroWithNonZeroRep() {
         NaturalNumber n = new NaturalNumber3("123");
         assertFalse(n.isZero());
     }
 
+    /**
+     * Test for isZero with a nonzero natural number rep.
+     */
     @Test
-    public void testIsZeroWithNonZeroNaturalNumber() {
+    public void testIsZeroWithNonZeroNN() {
         NaturalNumber n = new NaturalNumber3(1);
         assertFalse(n.isZero());
     }
 
+    /**
+     * Test for isZero with a natural number rep of zero.
+     */
     @Test
-    public void testIsZeroWithZeroNaturalNumber() {
+    public void testIsZeroWithZeroNN() {
         NaturalNumber n = new NaturalNumber3();
         NaturalNumber n1 = new NaturalNumber3(n);
         assertTrue(n1.isZero());
