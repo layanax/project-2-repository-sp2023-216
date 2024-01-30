@@ -1,3 +1,9 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import components.naturalnumber.NaturalNumber;
 
 /**
@@ -97,9 +103,78 @@ public abstract class NaturalNumberTest {
      */
     protected abstract NaturalNumber constructorRef(NaturalNumber n);
 
-    // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
+    @Test
+    public void constructorTestDefault() {
+        NaturalNumber n = this.constructorTest();
+        assertEquals("0", n.toString());
+    }
 
-    public static void constructorFromStringTest1() {
+    @Test
+    public void constructorTestInt() {
+        int value = 123;
+        NaturalNumber n = this.constructorTest(value);
+        assertEquals(String.valueOf(value), n.toString());
+    }
 
+    @Test
+    public void constructorTestString() {
+        String value = "123";
+        NaturalNumber n = this.constructorTest(value);
+        assertEquals(value, n.toString());
+    }
+
+    @Test
+    public void constructorTestNaturalNumber() {
+        NaturalNumber value = new NaturalNumber3(123);
+        NaturalNumber n = this.constructorTest(value);
+        assertEquals("123", n.toString());
+    }
+
+    @Test
+    public void multiplyBy10Test() {
+        NaturalNumber n = this.constructorTest(123);
+        n.multiplyBy10(2);
+        assertEquals("12300", n.toString());
+    }
+
+    /**
+     * Simple divideBy10 for multi-digit numbers.
+     */
+    @Test
+    public void divideBy10Test() {
+        NaturalNumber n = new NaturalNumber3(123);
+        assertEquals(3, n.divideBy10());
+        assertEquals("12", n.toString());
+    }
+
+    @Test
+    public void testIsZeroWithEmptyRepresentation() {
+        NaturalNumber n = new NaturalNumber3();
+        assertTrue(n.isZero());
+    }
+
+    @Test
+    public void testIsZeroWithZeroRepresentation() {
+        NaturalNumber n = new NaturalNumber3("0");
+        assertTrue(n.isZero());
+    }
+
+    @Test
+    public void testIsZeroWithNonZeroRepresentation() {
+        NaturalNumber n = new NaturalNumber3("123");
+        assertFalse(n.isZero());
+    }
+
+    @Test
+    public void testIsZeroWithNonZeroNaturalNumber() {
+        NaturalNumber n = new NaturalNumber3(1);
+        assertFalse(n.isZero());
+    }
+
+    @Test
+    public void testIsZeroWithZeroNaturalNumber() {
+        NaturalNumber n = new NaturalNumber3();
+        NaturalNumber n1 = new NaturalNumber3(n);
+        assertTrue(n1.isZero());
     }
 }
