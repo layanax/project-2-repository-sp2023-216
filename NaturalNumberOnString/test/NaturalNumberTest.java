@@ -120,7 +120,8 @@ public abstract class NaturalNumberTest {
     public void constructorTestInt() {
         int value = 123;
         NaturalNumber n = this.constructorTest(value);
-        assertEquals(String.valueOf(value), n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
@@ -130,7 +131,8 @@ public abstract class NaturalNumberTest {
     public void constructorTestInt2() {
         int value = 0;
         NaturalNumber n = this.constructorTest(value);
-        assertEquals(String.valueOf(value), n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
@@ -141,17 +143,19 @@ public abstract class NaturalNumberTest {
     public void constructorTestString() {
         String value = "123";
         NaturalNumber n = this.constructorTest(value);
-        assertEquals(value, n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for string constructor with a specific string rep value equla to ""
+     * Test for string constructor with a specific string rep value equla to "".
      */
     @Test
     public void constructorTestString2() {
         String value = "0";
         NaturalNumber n = this.constructorTest(value);
-        assertEquals(value, n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
@@ -162,50 +166,58 @@ public abstract class NaturalNumberTest {
     public void constructorTestNaturalNumber() {
         NaturalNumber value = new NaturalNumber3(123);
         NaturalNumber n = this.constructorTest(value);
-        assertEquals("123", n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for naturalNumber constructor with 0
+     * Test for naturalNumber constructor with 0.
      */
     @Test
     public void constructorTestNaturalNumber2() {
         NaturalNumber value = new NaturalNumber3(0);
         NaturalNumber n = this.constructorTest(value);
-        assertEquals("0", n.toString());
+        NaturalNumber ref = this.constructorRef(value);
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for multiplyBy10 that checks if the natural number object has an
-     * equal string rep value for an initial multidigit value
+     * Test for multiplyBy10 that checks if the natural number object has an.
+     * equal string rep value for an initial multidigit value.
      */
     @Test
     public void multiplyBy10Test() {
         NaturalNumber n = this.constructorTest(123);
+        NaturalNumber ref = this.constructorRef(123);
+        ref.multiplyBy10(2);
         n.multiplyBy10(2);
-        assertEquals("1232", n.toString());
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for multiplyBy10 that checks if the natural number object has an
+     * Test for multiplyBy10 that checks if the natural number object has an.
      * equal string rep value for a initial value of 0
      */
     @Test
     public void multiplyBy10Test2() {
         NaturalNumber n = this.constructorTest(0);
+        NaturalNumber ref = this.constructorRef(0);
         n.multiplyBy10(2);
-        assertEquals("2", n.toString());
+        ref.multiplyBy10(2);
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for multiplyBy10 that checks if the natural number object has an
+     * Test for multiplyBy10 that checks if the natural number object has an.
      * equal string rep value with an initial digit value multiplying a zero on
      */
     @Test
     public void multiplyBy10Test3() {
         NaturalNumber n = this.constructorTest(123);
+        NaturalNumber ref = this.constructorRef(123);
         n.multiplyBy10(0);
-        assertEquals("1230", n.toString());
+        ref.multiplyBy10(0);
+        assertEquals(n, ref);
     }
 
     /**
@@ -213,29 +225,35 @@ public abstract class NaturalNumberTest {
      */
     @Test
     public void divideBy10Test() {
-        NaturalNumber n = new NaturalNumber3(123);
+        NaturalNumber n = this.constructorTest(123);
+        NaturalNumber ref = this.constructorRef(123);
         assertEquals(3, n.divideBy10());
-        assertEquals("12", n.toString());
+        ref.divideBy10();
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for divideBy10 with an initial 0
+     * Test for divideBy10 with an initial 0.
      */
     @Test
     public void divideBy10Test2() {
-        NaturalNumber n = new NaturalNumber3(0);
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber ref = this.constructorRef();
         assertEquals(0, n.divideBy10());
-        assertEquals("0", n.toString());
+        ref.divideBy10();
+        assertEquals(n, ref);
     }
 
     /**
-     * Test for divideBy10 using an initial single digit number
+     * Test for divideBy10 using an initial single digit number.
      */
     @Test
     public void divideBy10Test3() {
-        NaturalNumber n = new NaturalNumber3(5);
+        NaturalNumber n = this.constructorTest(5);
+        NaturalNumber ref = this.constructorRef(5);
+        ref.divideBy10();
         assertEquals(5, n.divideBy10());
-        assertEquals("0", n.toString());
+        assertEquals(n, ref);
     }
 
     /**
