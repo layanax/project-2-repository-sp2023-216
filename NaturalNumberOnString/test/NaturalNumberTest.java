@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import components.naturalnumber.NaturalNumber;
 
+// merging
+
 /**
  * JUnit test fixture for {@code NaturalNumber}'s constructors and kernel
  * methods.
